@@ -35,11 +35,11 @@ An edge AI intelligent gateway built on the RK3506 embedded Linux platform, inte
 
 ## Hardware
 
-| Component | Model | Interface | I2C Address |
-|-----------|-------|-----------|-------------|
-| Dev Board | RK3506EVM | — | — |
-| Temperature & Humidity | AHT30 | I2C | 0x38 |
-| Accelerometer | MPU6050 / MPU6500 | I2C | 0x68 |
+| Component              | Model             | Interface | I2C Address |
+| ---------------------- | ----------------- | --------- | ----------- |
+| Dev Board              | RK3506EVM         | —         | —           |
+| Temperature & Humidity | AHT30             | I2C       | 0x38        |
+| Accelerometer          | MPU6050 / MPU6500 | I2C       | 0x68        |
 
 ## Features
 
@@ -132,10 +132,10 @@ Before running, update the MQTT broker address in:
 
 A dual-path detection strategy covers different anomaly scenarios:
 
-| Detection Path | Method | Trigger Condition |
-|----------------|--------|-------------------|
-| Vibration | 5-sample sliding window variance | Combined 3-axis variance > 1,000,000 |
-| Environmental | Random Forest exported rules | Temperature > 35.05°C or Humidity > 65% |
+| Detection Path | Method                           | Trigger Condition                       |
+| -------------- | -------------------------------- | --------------------------------------- |
+| Vibration      | 5-sample sliding window variance | Combined 3-axis variance > 1,000,000    |
+| Environmental  | Random Forest exported rules     | Temperature > 35.05°C or Humidity > 65% |
 
 An alarm is only triggered after **3 consecutive** anomaly detections to reduce false positives.
 
@@ -169,17 +169,5 @@ Open `web/dashboard.html` in a browser. It connects to the MQTT broker via WebSo
 - **Topic**: `edge-gateway/sensor`
 - **QoS**: 1
 - **Publish interval**: 5 seconds
-
-## Tutorials
-
-The project includes 5 step-by-step tutorials (in Chinese) covering the full build process:
-
-1. [I2C Verification & Sensor Wiring](01-i2c-setup.md)
-2. [Reading Sensors in C](02-sensor-reading.md)
-3. [Multi-threaded Framework & SQLite Storage](03-multithread-storage.md)
-4. [Data Collection, Model Training & On-board Inference](04-ai-model.md)
-5. [MQTT Reporting & Web Dashboard](05-mqtt-web.md)
-
-## License
 
 [MIT](LICENSE)
